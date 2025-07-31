@@ -1,0 +1,115 @@
+/* Fonts & Reset */
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(120deg, #e0d4f7, #c7eaff);
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  color: #333;
+}
+
+/* Scene Structure */
+.scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.message {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #4b3b73;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+
+/* Buttons */
+button {
+  background: #ffffffcc;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #f1e9ff;
+  transform: scale(1.05);
+}
+
+/* Final Scene */
+.photo-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn 2s ease forwards;
+}
+
+.photo-reveal img {
+  max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.photo-reveal p {
+  font-size: 1.4rem;
+  color: #403070;
+}
+
+.signature {
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  color: #6a5ca4;
+  margin-top: 0.5rem;
+}
+
+/* Floating clouds background */
+.floating-clouds::before,
+.floating-clouds::after {
+  content: '';
+  position: absolute;
+  background: url('https://i.ibb.co/WzwR6Vz/cloud.png') no-repeat center/contain;
+  width: 200px;
+  height: 120px;
+  opacity: 0.2;
+  animation: floatClouds 60s linear infinite;
+}
+
+.floating-clouds::after {
+  top: 30%;
+  left: 80%;
+  animation-delay: 10s;
+}
+
+.floating-clouds::before {
+  top: 10%;
+  left: 10%;
+}
+
+@keyframes floatClouds {
+  0% { transform: translateX(-200px); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
